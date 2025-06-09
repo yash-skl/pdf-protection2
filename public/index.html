@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>PDF Encryptor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Secure Your PDFs Instantly</h1>
+        <p class="subtitle">
+            Protect your confidential documents with password protection. Add
+            strong passwords and encrypt sensitive PDFs in seconds—ensuring
+            only authorized users can access your files.
+        </p>
+
+        <div class="main-content">
+            <div class="upload-container">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    Upload PDF File
+                </div>
+
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="upload-section" id="uploadSection">
+                        <input type="file" id="pdfFile" name="pdf" accept="application/pdf" style="display: none;">
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('pdfFile').click()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                            Choose PDF File
+                        </button>
+                    </div>
+
+                    <div id="fileInfo" class="file-info">
+                        <div class="file-name">
+                            <span id="fileName"></span>
+                            <button type="button" class="close-btn" onclick="resetForm()">×</button>
+                        </div>
+                    </div>
+
+                    <div id="passwordSection" class="password-section">
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Password Protection
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter password" required>
+                            <div id="passwordLengthError" class="error-message">Password must be at least 6 characters</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                            <div id="passwordError" class="error-message">Passwords do not match</div>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="btn btn-secondary" disabled>
+                            Export Encrypted PDF
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">PDF encrypted and downloaded successfully!</div>
+    <script src="script.js"></script>
+</body>
+</html> 
